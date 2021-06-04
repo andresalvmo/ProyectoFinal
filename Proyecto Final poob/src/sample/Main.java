@@ -32,6 +32,7 @@ public class Main extends Application {
     private Label sangre;
     private Label entidad;
 
+
     private TextField nameInput;
     private TextField lastNameInput;
     private TextField ageInput;

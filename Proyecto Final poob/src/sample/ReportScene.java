@@ -220,6 +220,7 @@ public class ReportScene{
         this.personaServices=personaServices;
         get();
         getEstrato();
+        getEntidad();
 
     }
 
