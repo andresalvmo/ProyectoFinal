@@ -148,7 +148,11 @@ public class Main extends Application {
             }
         });
 
-      
+        openReport.setOnAction(e->
+        {
+           new ReportScene(personaServices);
+        });
+
 
     }
 
@@ -335,8 +339,7 @@ public class Main extends Application {
         afiliacionInput.setMinWidth(30);
     }
 
-    
-
+   
 
     public static void main(String[] args) {
         launch(args);
