@@ -335,11 +335,7 @@ public class Main extends Application {
         afiliacionInput.setMinWidth(30);
     }
 
-    private void setupMenu() {
-
-
-
-    }
+    
 
 
     public static void main(String[] args) {
