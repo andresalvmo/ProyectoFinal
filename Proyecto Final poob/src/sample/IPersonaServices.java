@@ -16,6 +16,8 @@ public interface IPersonaServices {
 
     void export() throws Exception;
 
+    void exportconstantemente() throws Exception;
+
     List<Persona> importPersonas(File file) throws Exception;
 
 }

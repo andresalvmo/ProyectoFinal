@@ -55,6 +55,14 @@ public class PersonaServices implements IPersonaServices {
     }
 
     @Override
+    public void exportconstantemente() throws Exception{
+        List<Exportable> e = new ArrayList<>();
+        this.personas.stream().forEach(p -> e.add(p));
+        this.export.exportConstantemente(e, Exportable.CSV);
+    }
+
+
+    @Override
     public List<Persona> importPersonas(File file) throws Exception {
         List<Persona> importedPersonas = new ArrayList<>();
         List<String> read = this.personaPersistence.importPersonas(file);

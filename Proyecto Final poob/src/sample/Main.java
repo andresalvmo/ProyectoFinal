@@ -52,6 +52,8 @@ public class Main extends Application {
     private Button Bimport;
     private Button Export;
 
+    private File f = new File("export-constante.csv");
+
     // Logic Properties
     private IPersonaServices personaServices;
 
@@ -63,7 +65,7 @@ public class Main extends Application {
         setUp();
         behavior(primaryStage);
 
-        primaryStage.setTitle("Sabana Example");
+        primaryStage.setTitle("Proyecto Final");
         primaryStage.setScene(scene);
         primaryStage.show();
 
@@ -71,10 +73,17 @@ public class Main extends Application {
 
     private void behavior(Stage stage) throws Exception {
         this.personaServices = new PersonaServices();
-        this.personaServices.insert(new Persona("Diego", "Prieto", "25", "Activa", "Manzanares","3142259844","5","A+","FamiSanar"));
-        this.personaServices.insert(new Persona("Andres", "Alvarado", "23", "Activa", "Rosal","3002455244","4","AB-","MediMas"));
-        this.personaServices.insert(new Persona("Andre", "Alva", "23", "Inactivo", "Rosal","3002455244","4","A-","Nueva EPS"));
-        this.personaServices.insert(new Persona("Andi", "Arado", "23", "Inactivo", "Rosal","3002455244","4","B-","Saludcoop"));
+        try {
+            this.personaServices.importPersonas(f);
+            this.personaServices.getAll().stream().forEach(p -> System.out.println(p));
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+
+        //this.personaServices.insert(new Persona("Diego", "Prieto", "25", "Activa", "Manzanares","3142259844","5","A+","FamiSanar"));
+        //this.personaServices.insert(new Persona("Andres", "Alvarado", "23", "Activa", "Rosal","3002455244","4","AB-","MediMas"));
+        //this.personaServices.insert(new Persona("Andre", "Alva", "23", "Inactivo", "Rosal","3002455244","4","A-","Nueva EPS"));
+        //this.personaServices.insert(new Persona("Andi", "Arado", "23", "Inactivo", "Rosal","3002455244","4","B-","Saludcoop"));
         //this.personaServices.insert(new Persona("Diego", "Prieto", "25", "Activa", "Manzanares","3142259844"));
 
         personasTable.setItems((ObservableList<Persona>) this.personaServices.getAll());
@@ -97,6 +106,12 @@ public class Main extends Application {
         deletePersona.setOnAction(e -> {
 
             this.personaServices.delete(personasTable.getSelectionModel().getSelectedItems());
+
+            try {
+                this.personaServices.exportconstantemente();
+            } catch (Exception exception) {
+                exception.printStackTrace();
+            }
         });
 
         Export.setOnAction(e -> {
@@ -117,9 +132,16 @@ public class Main extends Application {
                 try {
                     this.personaServices.importPersonas(file);
                     this.personaServices.getAll().stream().forEach(p -> System.out.println(p));
+                    System.out.println(file.getPath());
                 } catch (Exception exception) {
                     exception.printStackTrace();
                 }
+            }
+
+            try {
+                this.personaServices.exportconstantemente();
+            } catch (Exception exception) {
+                exception.printStackTrace();
             }
         });
 
@@ -146,6 +168,12 @@ public class Main extends Application {
             } catch (Exception exception) {
                 exception.printStackTrace();
             }
+
+            try {
+                this.personaServices.exportconstantemente();
+            } catch (Exception exception) {
+                exception.printStackTrace();
+            }
         });
 
         openReport.setOnAction(e->
@@ -160,7 +188,6 @@ public class Main extends Application {
     {   setupTable();
         setUpCrud();
         setupInputs();
-        setupMenu();
 
 
 
@@ -339,7 +366,7 @@ public class Main extends Application {
         afiliacionInput.setMinWidth(30);
     }
 
-   
+
 
     public static void main(String[] args) {
         launch(args);
