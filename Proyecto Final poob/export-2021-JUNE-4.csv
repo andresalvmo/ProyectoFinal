@@ -1,11 +1,7 @@
 name,LastName,afiliacion,sector,contacto,age,estrato,sangre,entidad
-Diego,Prieto,25,Activa,Manzanares,3142259844,5,A+,FamiSanar,
+Laura,Prieto,25,Activa,Manzanares,3142259844,5,A+,FamiSanar,
 Andres,Alvarado,23,Activa,Rosal,3002455244,4,AB-,MediMas,
 Andre,Alva,23,Inactivo,Rosal,3002455244,4,A-,Nueva EPS,
 Andi,Arado,23,Inactivo,Rosal,3002455244,4,B-,Saludcoop,
 di,ni,23,Inactivo,manzanares,3111111111,2,B-,MediMas,
-Diego,Prieto,25,Activa,Manzanares,3142259844,5,A+,FamiSanar,
-Andres,Alvarado,23,Activa,Rosal,3002455244,4,AB-,MediMas,
-Andre,Alva,23,Inactivo,Rosal,3002455244,4,A-,Nueva EPS,
-Andi,Arado,23,Inactivo,Rosal,3002455244,4,B-,Saludcoop,
-di,ni,23,Inactivo,manzanares,3111111111,2,B-,MediMas,
+n,e,12,Activa,manzanares,3153048831,3,O+,MediMas,

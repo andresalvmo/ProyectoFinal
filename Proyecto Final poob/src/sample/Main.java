@@ -147,25 +147,29 @@ public class Main extends Application {
         });
 
         add.setOnAction(e ->{
+
             try {
-                Persona p=new Persona(nameInput.getText(),lastNameInput.getText(),ageInput.getText(),afiliacionInput.getText(),sectorInput.getText(),contactoInput.getText(),estratoInput.getText(),sangreInput.getText(),entidadInput.getText());
+                if (sangreInput.getText().equals("A+") || sangreInput.getText().equals("A-") || sangreInput.getText().equals("B+")||sangreInput.getText().equals("B-")||sangreInput.getText().equals("O+")||sangreInput.getText().equals("O-")||sangreInput.getText().equals("AB+")||sangreInput.getText().equals("AB-") ) {
+                    Persona p = new Persona(nameInput.getText(), lastNameInput.getText(), ageInput.getText(), afiliacionInput.getText(), sectorInput.getText(), contactoInput.getText(), estratoInput.getText(), sangreInput.getText(), entidadInput.getText());
 
-                this.personaServices.insert(p);
+                    this.personaServices.insert(p);
 
-                nameInput.clear();
-                lastNameInput.clear();
-                ageInput.clear();
-                afiliacionInput.clear();
-                sectorInput.clear();
-                contactoInput.clear();
-                estratoInput.clear();
-                sangreInput.clear();
-                entidadInput.clear();
-
-
-
+                    nameInput.clear();
+                    lastNameInput.clear();
+                    ageInput.clear();
+                    afiliacionInput.clear();
+                    sectorInput.clear();
+                    contactoInput.clear();
+                    estratoInput.clear();
+                    sangreInput.clear();
+                    entidadInput.clear();
 
 
+                }
+
+                else{
+                    new TipodeSangreScene();
+                    }
             } catch (Exception exception) {
                 exception.printStackTrace();
             }
